@@ -233,13 +233,14 @@ footer{padding-block:36px;border-top:1px solid var(--line);font-size:14px;color:
 
 <script>
 // Edita aqui: link de compra e preço (deixa o preço vazio para o esconder).
-var BUY_URL = "";
-var PRICE = "";
+var BUY_URL = "https://payhip.com/b/nzSWg";
+var PRICE = "14,90 €";
 (function(){
   var b=document.getElementById('buy'), n=document.getElementById('buy-note'), p=document.getElementById('price');
   if(PRICE){p.textContent=PRICE;p.hidden=false;}
   if(BUY_URL){b.href=BUY_URL;b.target="_blank";b.rel="noopener";}
   else{n.textContent="O link de compra ainda não está ligado.";}
+  if(PRICE&&BUY_URL){n.textContent="IVA incluído. Pagamento seguro e descarga imediata.";}
 })();
 </script>
 </body>
