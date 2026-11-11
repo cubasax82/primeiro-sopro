@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Primeiro Sopro: método de saxofone alto para autodidatas, com pautas, dedilhações clássicas e faixas de acompanhamento.">
+<title>Primeiro Sopro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: single column sales page, teal ground, amber accent, hero with sax drawing, then proof, contents, FAQ, buy */
+:root{
+  --bg:#0F4C5C; --bg2:#0B3D4A; --fg:#FAF3E3; --muted:#C9D8D6; --accent:#F0B454; --accent-ink:#0F3340;
+  --line:rgba(250,243,227,.22); --card:rgba(250,243,227,.07);
+  --serif:'DM Serif Display',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#F7F1E3; --bg2:#EFE6D0; --fg:#10343F; --muted:#4A6168; --accent:#B5700F; --accent-ink:#FFF8E8;
+  --line:rgba(16,52,63,.22); --card:rgba(16,52,63,.06); color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#F7F1E3; --bg2:#EFE6D0; --fg:#10343F; --muted:#4A6168; --accent:#B5700F; --accent-ink:#FFF8E8;
+  --line:rgba(16,52,63,.22); --card:rgba(16,52,63,.06); color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:17px;line-height:1.6}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+section{padding-block:72px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;text-wrap:balance;line-height:1.05}
+h2{font-size:clamp(34px,5vw,52px)}
+.eyebrow{display:flex;align-items:center;gap:14px;font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:22px}
+.eyebrow::before{content:"";width:36px;height:2px;background:var(--accent)}
+.hero{padding-block:56px 64px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+h1{font-size:clamp(64px,12vw,132px);letter-spacing:-.01em;line-height:.92}
+h1 em{color:var(--accent)}
+.lead{font-size:clamp(19px,2.4vw,24px);line-height:1.4;max-width:30ch;margin:22px 0 30px}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);font-weight:700;text-decoration:none;padding:16px 28px;border-radius:4px;font-size:17px;border:0;cursor:pointer;font-family:var(--sans)}
+.btn:hover{filter:brightness(1.08)}
+.btn:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--fg);outline-offset:3px}
+.btn.ghost{background:transparent;color:var(--fg);border:2px solid var(--line);margin-left:10px}
+.stats{display:flex;flex-wrap:wrap;gap:12px 40px;margin-top:34px;padding-top:22px;border-top:2px solid var(--accent)}
+.stats b{display:block;font-family:var(--serif);font-weight:400;font-size:38px;line-height:1;color:var(--accent)}
+.stats span{font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.band{background:var(--bg2)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.two p{color:var(--muted);margin:14px 0 0}
+.fixes{display:grid;gap:0;margin-top:34px;border-top:1px solid var(--line)}
+.fix{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:24px;padding:22px 0;border-bottom:1px solid var(--line)}
+.fix h3{font-size:24px}
+.fix p{margin:0;color:var(--muted)}
+.mods{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;margin-top:34px}
+.mod{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:22px}
+.mod small{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.mod h3{font-size:25px;margin:6px 0 8px}
+.mod p{margin:0;color:var(--muted);font-size:16px}
+.bonus{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px 28px;margin:30px 0 0;padding:0;list-style:none}
+.bonus li{padding-left:22px;position:relative;color:var(--fg)}
+.bonus li::before{content:"♪";position:absolute;left:0;color:var(--accent)}
+.tracks{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:30px}
+.track{border:1px solid var(--line);border-radius:6px;padding:14px 16px;background:var(--card)}
+.track b{display:block;font-family:var(--serif);font-weight:400;font-size:24px;color:var(--accent);line-height:1.1}
+.track span{font-size:14px;color:var(--muted)}
+.author{display:grid;grid-template-columns:1fr;gap:12px;max-width:62ch}
+.author p{margin:0;color:var(--muted)}
+details{border-bottom:1px solid var(--line);padding:18px 0}
+details:first-of-type{border-top:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:20px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-size:26px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin:12px 0 0;color:var(--muted);max-width:66ch}
+.buy{text-align:center}
+.buy h2{max-width:16ch;margin:0 auto 18px}
+.buy p{color:var(--muted);max-width:52ch;margin:0 auto 28px}
+.price{font-family:var(--serif);font-size:56px;color:var(--accent);line-height:1;margin-bottom:6px}
+.price[hidden]{display:none}
+.note{font-size:14px;color:var(--muted);margin-top:18px}
+footer{padding-block:36px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.sax{width:100%;height:auto;max-width:480px;justify-self:center}
+@media (max-width:820px){
+  section{padding-block:52px}
+  .hero-grid,.two{grid-template-columns:1fr;gap:28px}
+  .fix{grid-template-columns:1fr;gap:6px}
+  .btn.ghost{margin:12px 0 0}
+  .sax{max-width:340px}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+
+</head>
+<body>
+<header class="hero">
+<div class="wrap hero-grid">
+<div>
+<div class="eyebrow">Método de saxofone alto</div>
+<h1>Primeiro<br><em>Sopro</em></h1>
+<p class="lead">Da primeira nota à primeira música, em casa, ao teu ritmo.</p>
+<a class="btn" href="#comprar">Quero começar</a><a class="btn ghost" href="#conteudo">Ver o conteúdo</a>
+<div class="stats">
+<div><b>42</b><span>lições</span></div>
+<div><b>30</b><span>dias de plano</span></div>
+<div><b>6</b><span>faixas para tocar</span></div>
+<div><b>32</b><span>dedilhações</span></div>
+</div>
+</div>
+<svg class="sax" viewBox="0 0 528 380" role="img" aria-label="Saxofone alto com ondas de som e notas musicais a sair da campânula">
+<g stroke="currentColor" stroke-opacity=".22" stroke-width="1.5" fill="none" style="color:var(--fg)">
+<line x1="0" y1="96" x2="528" y2="96"/><line x1="0" y1="116" x2="528" y2="116"/><line x1="0" y1="136" x2="528" y2="136"/><line x1="0" y1="156" x2="528" y2="156"/><line x1="0" y1="176" x2="528" y2="176"/>
+</g>
+<g fill="none" stroke="var(--accent)" stroke-width="2">
+<circle cx="372" cy="262" r="54" stroke-opacity=".65"/><circle cx="372" cy="262" r="88" stroke-opacity=".4"/><circle cx="372" cy="262" r="122" stroke-opacity=".22"/>
+</g>
+<g>
+<path d="M112 34 L150 28" stroke="var(--fg)" stroke-width="14" stroke-linecap="round" fill="none"/>
+<path d="M150 28 C196 24 236 42 246 88" stroke="var(--accent)" stroke-width="22" stroke-linecap="round" fill="none"/>
+<path d="M246 88 L254 274" stroke="var(--accent)" stroke-width="40" fill="none"/>
+<path d="M254 274 C256 350 340 356 366 292" stroke="var(--accent)" stroke-width="44" fill="none"/>
+<ellipse cx="371" cy="272" rx="40" ry="15" transform="rotate(-18 371 272)" fill="var(--accent)" stroke="var(--bg)" stroke-width="3"/>
+<path d="M236 100 L243 270" stroke="var(--fg)" stroke-opacity=".45" stroke-width="3" stroke-linecap="round" fill="none"/>
+</g>
+<g fill="var(--fg)" stroke="var(--bg)" stroke-width="3">
+<circle cx="250" cy="118" r="8"/><circle cx="251" cy="144" r="8"/><circle cx="251" cy="170" r="8"/><circle cx="252" cy="206" r="8"/><circle cx="253" cy="232" r="8"/><circle cx="253" cy="258" r="8"/>
+</g>
+<g fill="var(--fg)"><ellipse cx="418" cy="178" rx="9" ry="6.5" transform="rotate(-18 418 178)"/><ellipse cx="456" cy="138" rx="9" ry="6.5" transform="rotate(-18 456 138)"/><ellipse cx="492" cy="104" rx="9" ry="6.5" transform="rotate(-18 492 104)"/></g>
+<g stroke="var(--fg)" stroke-width="2.5" stroke-linecap="round" fill="none"><line x1="425" y1="177" x2="425" y2="146"/><line x1="463" y1="137" x2="463" y2="106"/><line x1="499" y1="103" x2="499" y2="72"/></g>
+</svg>
+</div>
+</header>
+
+<section class="band">
+<div class="wrap two">
+<div>
+<div class="eyebrow">Para quem é</div>
+<h2>Para quem quer tocar sem esperar anos.</h2>
+</div>
+<div>
+<p>Se tens um saxofone alto, ou vais comprar um, e nunca leste música, este caderno leva-te do primeiro som à primeira melodia conhecida e, mais à frente, ao teu primeiro solo de blues.</p>
+<p>Cada lição tem um objetivo claro, um exercício curto e uma pauta para ler. Dez minutos bem feitos por dia valem mais do que uma hora distraída ao fim de semana.</p>
+</div>
+</div>
+</section>
+
+<section id="diferenca">
+<div class="wrap">
+<div class="eyebrow">O que o torna diferente</div>
+<h2>O que faltava nos métodos de iniciação.</h2>
+<div class="fixes">
+<div class="fix"><h3>Dedilhações clássicas</h3><p>Diagramas em duas colunas, mão esquerda e mão direita, com a nota escrita na pauta e as alternativas indicadas. Não precisas de decifrar bolinhas.</p></div>
+<div class="fix"><h3>Pautas reais</h3><p>Todos os exercícios vêm escritos em pauta, com compassos, ligaduras e pausas. Aprendes a tocar e a ler ao mesmo tempo.</p></div>
+<div class="fix"><h3>Música para tocar em cima</h3><p>Seis faixas de acompanhamento, de um lento a 60 bpm até uma valsa e um blues, para treinares com banda desde cedo.</p></div>
+<div class="fix"><h3>Feito para o saxofone alto</h3><p>As notas, a transposição em Mi bemol, as chaves de oitava, o Dó# e o Dó grave estão explicados para este instrumento, não para um instrumento qualquer.</p></div>
+</div>
+</div>
+</section>
+
+<section id="conteudo" class="band">
+<div class="wrap">
+<div class="eyebrow">Conteúdo</div>
+<h2>Sete módulos, uma progressão.</h2>
+<div class="mods">
+<div class="mod"><small>Módulo 1</small><h3>Primeiros passos</h3><p>Montar o saxofone, a palheta, a embocadura, a respiração e a primeira nota, o Si.</p></div>
+<div class="mod"><small>Módulo 2 · Lições 7–13</small><h3>Ler e tocar</h3><p>Si, Lá, Sol e Dó. Pauta, clave de sol, ritmo, ataque com a língua e a tua primeira melodia.</p></div>
+<div class="mod"><small>Módulo 3 · Lições 14–20</small><h3>Escalas e primeira música</h3><p>Fá, Mi e Ré, as duas mãos juntas, Fá# e Si bemol, até à Ode à Alegria.</p></div>
+<div class="mod"><small>Módulo 4 · Lições 21–26</small><h3>Dois registos</h3><p>Mi bemol, Dó# sem dedos, Dó grave, a chave de oitava e o Dó maior em duas oitavas.</p></div>
+<div class="mod"><small>Módulo 5 · Lições 27–31</small><h3>Ritmo e expressão</h3><p>Colcheias, notas com ponto, compasso de 3/4, síncopa, dinâmica e fraseado.</p></div>
+<div class="mod"><small>Módulo 6 · Lições 32–37</small><h3>Música de verdade</h3><p>Tonalidades, arpejos, maior e menor, pentatónica, escala de blues, swing e vibrato.</p></div>
+<div class="mod"><small>Módulo 7 · Lições 39–40</small><h3>Improvisação</h3><p>Pergunta e resposta, e o blues de 12 compassos para tocares o teu primeiro solo.</p></div>
+</div>
+
+<h3 style="margin-top:56px;font-size:32px">Também incluído</h3>
+<ul class="bonus">
+<li>Tabela de dedilhações do saxofone alto</li>
+<li>Rotina de 10 minutos para um som bonito</li>
+<li>Guia de palhetas e manutenção</li>
+<li>Resolução de problemas comuns</li>
+<li>Plano de estudo de 30 dias</li>
+<li>Caderno de pautas para imprimir</li>
+</ul>
+</div>
+</section>
+
+<section id="faixas">
+<div class="wrap">
+<div class="eyebrow">Faixas de acompanhamento</div>
+<h2>Toca com banda desde o início.</h2>
+<p style="color:var(--muted);max-width:60ch;margin:16px 0 0">Cada faixa começa com dois compassos de contagem e repete a sequência de acordes. Estão na tonalidade certa para tocares o que está escrito no livro.</p>
+<div class="tracks">
+<div class="track"><b>60 bpm</b><span>Lento, notas longas</span></div>
+<div class="track"><b>72 bpm</b><span>Pop, primeiras melodias</span></div>
+<div class="track"><b>90 bpm</b><span>Pop, mais rápido</span></div>
+<div class="track"><b>100 bpm</b><span>Bossa, síncopa</span></div>
+<div class="track"><b>80 bpm</b><span>Blues de 12 compassos</span></div>
+<div class="track"><b>3/4 · 84 bpm</b><span>Valsa</span></div>
+</div>
+</div>
+</section>
+
+<section class="band">
+<div class="wrap author">
+<div class="eyebrow">Quem escreve</div>
+<h2>Lorenzo Maceo</h2>
+<p>Saxofonista, cantor, compositor e produtor. Toca ao vivo como Maceo Sax e escreveu este método a pensar em quem quer aprender sozinho, com explicações simples e exercícios que se podem tocar logo.</p>
+</div>
+</section>
+
+<section id="faq">
+<div class="wrap" style="max-width:780px">
+<div class="eyebrow">Perguntas frequentes</div>
+<h2 style="margin-bottom:30px">Antes de comprares.</h2>
+<details><summary>Preciso de saber ler música?</summary><p>Não. O módulo 2 ensina a pauta, a clave de sol, o compasso e o ritmo desde zero.</p></details>
+<details><summary>Serve para saxofone tenor ou soprano?</summary><p>Não. O método é escrito para o saxofone alto, que é afinado em Mi bemol. Os dedilhados são parecidos, mas as notas escritas e as faixas não coincidem com os outros saxofones.</p></details>
+<details><summary>Quanto tempo preciso por dia?</summary><p>Dez a vinte minutos chegam. O livro inclui uma rotina de 10 minutos e um plano para o primeiro mês.</p></details>
+<details><summary>Em que formato recebo o livro?</summary><p>Em PDF, para ler no telemóvel, no tablet ou imprimir. O caderno de pautas está preparado para impressão.</p></details>
+<details><summary>Como acedo às faixas de acompanhamento?</summary><p>Através de um QR code no livro, que abre a lista de faixas.</p></details>
+</div>
+</section>
+
+<section id="comprar" class="band buy">
+<div class="wrap">
+<div class="eyebrow" style="justify-content:center">Começa hoje</div>
+<h2>O teu primeiro sopro está à espera.</h2>
+<div class="price" id="price" hidden></div>
+<p id="buy-text">Recebes o livro em PDF, o caderno de pautas e as seis faixas de acompanhamento.</p>
+<a class="btn" id="buy" href="#comprar">Comprar o Primeiro Sopro</a>
+<div class="note" id="buy-note"></div>
+</div>
+</section>
+
+<footer>
+<div class="wrap">© Lorenzo Maceo · Primeiro Sopro · Método de saxofone alto</div>
+</footer>
+
+<script>
+// Edita aqui: link de compra e preço (deixa o preço vazio para o esconder).
+var BUY_URL = "https://payhip.com/b/nzSWg";
+var PRICE = "";
+(function(){
+  var b=document.getElementById('buy'), n=document.getElementById('buy-note'), p=document.getElementById('price');
+  if(PRICE){p.textContent=PRICE;p.hidden=false;}
+  if(BUY_URL){b.href=BUY_URL;b.target="_blank";b.rel="noopener";}
+  else{n.textContent="O link de compra ainda não está ligado.";}
+})();
+</script>
+</body>
+</html>
